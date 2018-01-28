@@ -1,0 +1,12 @@
+div {
+  h1 {
+    color: blue;
+  }
+
+  .app {
+    width: 100px;
+    height: 100px;
+    background: #333;
+    transform: rotate(45deg);
+  }
+}

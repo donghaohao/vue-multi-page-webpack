@@ -1,0 +1,7 @@
+- entry: 'page2'
+  template:
+    title: 'page2'
+
+- entry: 'page2/page3'
+  template:
+    title: 'page3'
