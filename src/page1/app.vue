@@ -1,6 +1,5 @@
 <script>
   import Test from './component/test.vue'
-  import One from './images/1.jpg'
   export default {
     data() {
       return {
@@ -20,12 +19,24 @@
   }
 </script>
 <template>
-  <Test :my-name="name" :my-age="age"></Test>
-  <img :src="One"></img>
   <div>
-    <h1>个人信息page1</h1>
-    <p>我的个人信息啊啊啊啊啊！</p>
-    <p class="app"></p>
+    <h1>webpack1111111111</h1>
+    <Test :my-name="name" :my-age="age"></Test>
+    <div>
+      <img src="./images/1.jpg"></img>
+      <img src="./images/bin.svg"></img>
+      <div>
+        <h1>个人信息page1</h1>
+        <p>我的个人信息啊啊啊啊啊！</p>
+        <p class="app"></p>
+      </div>
+    </div>
   </div>
 </template>
-<style src="./css/app.css"></style>
+<style scoped>
+  @import "css/app.css";
+  img {
+    width: 200px;
+    height: 200px;
+  }
+<style>

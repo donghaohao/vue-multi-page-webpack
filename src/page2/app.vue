@@ -19,11 +19,14 @@
   }
 </script>
 <template>
-  <Test :my-name="name" :my-age="age"></Test>
   <div>
-    <h1>个人信息page2</h1>
-    <p>我的个人信息啊啊啊啊啊！</p>
-    <p class="app"></p>
+    <h1>webpack2222222222</h1>
+    <Test :my-name="name" :my-age="age"></Test>
+    <div>
+      <h1>个人信息page2</h1>
+      <p>我的个人信息啊啊啊啊啊！</p>
+      <p class="app"></p>
+    </div>
   </div>
 </template>
 <style src="./css/app.css"></style>

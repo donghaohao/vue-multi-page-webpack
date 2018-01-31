@@ -6,11 +6,12 @@ const svgoConfig = require('./config/svgo-config')
 
 let baseConfig = {
   entry: {
-    // vendor: ['vue'],
+    vendor: ['vue'],
   },
   output: {
     path: consts.DIST_PATH,
-    filename: '[name].[chunkhash:7].js'
+    filename: '[name].[chunkhash:7].js',
+    publicPath: consts.DIST_PATH,
   },
 
   resolve: {
@@ -29,14 +30,15 @@ let baseConfig = {
       //     emitWarning: true,
       //   }
       // },
+      // {
+      //   enforce: 'pre',
+      //   test: /.svg$/,
+      //   loader: 'svg-loader',
+      //   options: {
+      //     plugins: require('./config/svgo-config')
+      //   },
+      // }, {
       {
-        enforce: 'pre',
-        test: /.svg$/,
-        loader: 'svg-loader',
-        options: {
-          plugins: require('./config/svgo-config')
-        },
-      }, {
         test: /\.js$/,
         include: consts.ROOT_PATH,
         exclude: /node_modules/,
@@ -50,9 +52,9 @@ let baseConfig = {
       }, {
         test: /\.(svg|gif|png|jpe?g)(\?\S*)?$/,
         loader: 'file-loader',
-        query: {
+        options: {
           limit: 10000,
-          name: path.join(consts.ASSETS_PATH, '[name].[hash:7].[ext]'),
+          name: path.posix.join('/static/', '[name].[hash:7].[ext]'),
         },
       }, {
         test: /\.css$/,
@@ -79,16 +81,12 @@ let baseConfig = {
           postcss: consts.POSTCSS_CONFIG,
           loaders: {
             js: 'babel-loader',
-            css: 'vue-style-loader!css-loader',
           },
         }
       },
     ]
   },
   plugins: [],
-  // externals: {
-  //   'vue': 'Vue',
-  // },
 }
 
 module.exports = baseConfig

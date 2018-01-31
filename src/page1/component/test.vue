@@ -27,6 +27,7 @@
   }
   img {
     width: 200px;
+    height: 200px;
   }
   .pic {
     width: 100px;

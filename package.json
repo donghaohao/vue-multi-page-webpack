@@ -38,6 +38,7 @@
     "postcss-nested": "^3.0.0",
     "postcss-px2rem": "^0.3.0",
     "style-loader": "^0.19.1",
+    "svg-loader": "0.0.2",
     "svgo": "^1.0.3",
     "svgo-loader": "^2.1.0",
     "uglifyjs-webpack-plugin": "^1.1.6",

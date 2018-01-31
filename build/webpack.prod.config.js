@@ -33,11 +33,11 @@ let prodConfig = merge(baseConfig, {
     // new UglifyJsPlugin({
     //   sourceMap: false,
     // }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: ['vendor'],
-    //   chunkFilename: '[name].[chunkhash:7].js',
-    //   minChunks: 88
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['vendor'],
+      chunkFilename: '[name].[chunkhash:7].js',
+      minChunks: 88
+    }),
   ]),
 })
 console.log(prodConfig.module.rules[4])

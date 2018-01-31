@@ -18,7 +18,7 @@ const getHtmlTemplatePlugin = config => {
     // },
     // chunks: ['vendor'],
     inject: 'body',
-    // chunks: [config.chunkName, 'vendor']
+    chunks: ['vendor', config.chunkName]
   })
 }
 
@@ -55,9 +55,11 @@ module.exports = {
     })
     let entries = {}
     let plugins = []
-
+    console.log('============')
     entryConfigs.forEach(item => {
       entries[item.chunkName] = item.src
+      console.log(item.entry)
+      console.log(item.chunkName)
       plugins.push(getHtmlTemplatePlugin(item))
     })
 
