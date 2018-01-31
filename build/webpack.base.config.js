@@ -69,18 +69,15 @@ let baseConfig = {
             }
           }, {
             loader: 'postcss-loader',
-            options: {
-              plugins: (loader) => consts.POSTCSS_CONFIG
-            }
           }
         ]
       }, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          postcss: consts.POSTCSS_CONFIG,
           loaders: {
             js: 'babel-loader',
+            style: 'vue-style-loader!css-loader'
           },
         }
       },

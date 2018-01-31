@@ -34,9 +34,12 @@
   </div>
 </template>
 <style scoped>
-  @import "css/app.css";
-  img {
-    width: 200px;
-    height: 200px;
+  @import "./css/app.css";
+  h1 {
+    color: yellow;
   }
-<style>
+  img {
+    width: 100px;
+    height: 100px;
+  }
+</style>

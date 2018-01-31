@@ -29,4 +29,8 @@
     </div>
   </div>
 </template>
-<style src="./css/app.css"></style>
+<style scoped>
+  h1 {
+    color: purple;
+  }
+</style>

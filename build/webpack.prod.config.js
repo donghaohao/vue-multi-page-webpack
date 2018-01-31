@@ -40,7 +40,7 @@ let prodConfig = merge(baseConfig, {
     }),
   ]),
 })
-console.log(prodConfig.module.rules[4])
+console.log(prodConfig.module.rules[5])
 
 // console.log(prodConfig.entry)
 
