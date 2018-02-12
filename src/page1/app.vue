@@ -20,10 +20,10 @@
 </script>
 <template>
   <div>
-    <h1>webpack1111111111</h1>
+    <h1>webpack1111111111 hello world</h1>
     <Test :my-name="name" :my-age="age"></Test>
     <div>
-      <img src="./images/1.jpg"></img>
+      <img src="./images/2.jpg"></img>
       <img src="./images/bin.svg"></img>
       <div>
         <h1>个人信息page1</h1>
@@ -39,7 +39,7 @@
     color: yellow;
   }
   img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
   }
 </style>

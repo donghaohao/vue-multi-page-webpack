@@ -48,11 +48,16 @@ let prodConfig = merge(baseConfig, {
   ]),
   devtool: '#eval-source-map',
 })
-
-
-fs.writeFile('webpack.prod.config.json', JSON.stringify(prodConfig, null, 2), (err) => {
-  if (err) throw err
-  console.log('Dev config file generated')
+Object.keys(moduleContent.entry).forEach(key => {
+  if (Array.isArray(moduleContent.entry[key])) {
+    moduleContent.entry[key].push('webpack-hot-middleware/client?reload=true')
+  }
 })
+
+// 输出最终的配置文件
+// fs.writeFile('webpack.prod.config.json', JSON.stringify(prodConfig, null, 2), (err) => {
+//   if (err) throw err
+//   console.log('Dev config file generated')
+// })
 
 module.exports = prodConfig

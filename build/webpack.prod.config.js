@@ -25,7 +25,7 @@ const moduleContent = utils.getModuleConfigs(configList)
 let prodConfig = merge(baseConfig, {
   entry: moduleContent.entry,
   output: {
-    publicPath: consts.DIST_PATH,
+    publicPath: consts.DIST_PATH + '/',
   },
   module: {
     rules: [

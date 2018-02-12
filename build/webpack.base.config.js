@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const consts = require('./config/consts')
-const svgoConfig = require('./config/svgo-config')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 let baseConfig = {
@@ -12,6 +11,7 @@ let baseConfig = {
   output: {
     path: consts.DIST_PATH,
     filename: '[name].[chunkhash:7].js',
+    publicPath: '/'
   },
 
   resolve: {
@@ -30,14 +30,6 @@ let baseConfig = {
       //     emitWarning: true,
       //   }
       // },
-      // {
-      //   enforce: 'pre',
-      //   test: /.svg$/,
-      //   loader: 'svg-loader',
-      //   options: {
-      //     plugins: require('./config/svgo-config')
-      //   },
-      // }, {
       {
         test: /\.js$/,
         include: consts.ROOT_PATH,
@@ -54,7 +46,7 @@ let baseConfig = {
         loader: 'file-loader',
         options: {
           limit: 10000,
-          name: path.posix.join('/static/', '[name].[hash:7].[ext]'),
+          name: path.posix.join('static/', '[name].[hash:7].[ext]'),
         },
       }
     ]
