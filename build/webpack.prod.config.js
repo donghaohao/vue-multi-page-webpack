@@ -55,4 +55,10 @@ let prodConfig = merge(baseConfig, {
     }),
   ]),
 })
+
+// 输出最终的配置文件
+// fs.writeFile('webpack.prod.config.json', JSON.stringify(prodConfig, null, 2), (err) => {
+//   if (err) throw err
+//   console.log('Dev config file generated')
+// })
 module.exports = prodConfig

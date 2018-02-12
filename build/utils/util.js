@@ -9,7 +9,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const getHtmlTemplatePlugin = config => {
   return new HtmlWebpackPlugin({
     filename: `${config.entry}/index.html`,
-    template: path.join(consts.ROOT_PATH, 'build/index.html'),
+    template: path.join(consts.ROOT_PATH, 'build/index.tpl'),
+    title: config.template.title,
     minify: {
       removeComments: true,
       collapseWhitespace: true,
@@ -18,7 +19,8 @@ const getHtmlTemplatePlugin = config => {
       collapseBooleanAttributes: true,
     },
     inject: 'body',
-    chunks: ['vendor', config.chunkName]
+    chunks: ['vendor', config.chunkName],
+    scripts: config.template.scripts || [],
   })
 }
 
@@ -48,6 +50,7 @@ module.exports = {
       let entry = item.entry
       let temp = entry.split('/')
       return {
+        ...item,
         chunkName: entry + '/' + (temp.length > 1 ? temp.pop() : entry),
         src: [`./src/${entry}`],
         entry: entry,

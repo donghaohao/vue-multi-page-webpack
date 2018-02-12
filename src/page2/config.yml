@@ -5,3 +5,6 @@
 - entry: 'page2/page3'
   template:
     title: 'page3'
+    scripts:
+      - 'https://unpkg.com/vue-router/dist/vue-router.min.js'
+      - 'https://unpkg.com/vuex/dist/vuex.min.js'
