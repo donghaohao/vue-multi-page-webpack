@@ -13,11 +13,13 @@
   }
 </script>
 <template>
-  <h1>Hello,{{myName}}</h2>
+<div>
+  <h1>Hello,{{myName}}</h1>
   <p>your age is {{myAge}}</p>
   <img src="../images/bin.svg"></img>
   <img src="../images/1.jpg">
   <div class="pic"></div>
+</div>
 </template>
 <style scoped>
   h1 {

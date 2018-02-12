@@ -24,6 +24,21 @@ const moduleContent = utils.getModuleConfigs(configList)
 
 let prodConfig = merge(baseConfig, {
   entry: moduleContent.entry,
+  output: {
+    publicPath: consts.DIST_PATH,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: utils.getCssLoaderConfig(true)
+      }, {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: utils.getVueLoaderConfig(true)
+      },
+    ]
+  },
   plugins: moduleContent.plugins.concat([
     new CleanWebpackPlugin(['dist'], { root: consts.ROOT_PATH }),
     new webpack.DefinePlugin({

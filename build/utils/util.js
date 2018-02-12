@@ -4,6 +4,7 @@ const consts = require('../config/consts.js')
 const yaml = require('js-yaml')
 const process = require('process')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const getHtmlTemplatePlugin = config => {
   return new HtmlWebpackPlugin({
@@ -63,5 +64,37 @@ module.exports = {
       entry: entries,
       plugins: plugins,
     }
+  },
+  getCssLoaderConfig: function(isProduction) {
+    const config = [{
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        importLoaders: 1
+      }
+    }, {
+      loader: 'postcss-loader',
+    }]
+    return isProduction ? ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: config,
+    }) : [{ loader: 'style-loader '}].concat(config)
+  },
+  getVueLoaderConfig: function(isProduction) {
+    const config = {
+      loaders: {
+        js: 'babel-loader',
+        style: 'vue-style-loader!css-loader',
+      },
+    }
+    if (isProduction) {
+      config.loaders.css = ExtractTextPlugin.extract({
+        use: {
+          loader: 'css-loader?minimize=true',
+        },
+        fallback: 'vue-style-loader',
+      })
+    }
+    return config
   },
 }

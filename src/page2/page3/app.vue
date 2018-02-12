@@ -26,7 +26,7 @@
       <img src="./images/1.jpg"></img>
       <img src="./images/bin.svg"></img>
       <div>
-        <h1>个人信息page1</h1>
+        <h1>个人信息page3</h1>
         <p>我的个人信息啊啊啊啊啊！</p>
         <p class="app"></p>
       </div>

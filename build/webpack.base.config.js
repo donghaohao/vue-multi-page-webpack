@@ -12,7 +12,6 @@ let baseConfig = {
   output: {
     path: consts.DIST_PATH,
     filename: '[name].[chunkhash:7].js',
-    publicPath: consts.DIST_PATH,
   },
 
   resolve: {
@@ -57,36 +56,7 @@ let baseConfig = {
           limit: 10000,
           name: path.posix.join('/static/', '[name].[hash:7].[ext]'),
         },
-      }, {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 1
-            }
-          }, {
-            loader: 'postcss-loader',
-          }],
-        })
-      }, {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            js: 'babel-loader',
-            style: 'vue-style-loader!css-loader',
-            css: ExtractTextPlugin.extract({
-              use: {
-                loader: 'css-loader?minimize=true',
-              },
-              fallback: 'vue-style-loader',
-            })
-          },
-        }
-      },
+      }
     ]
   },
   plugins: [],
