@@ -9,14 +9,13 @@ const getHtmlTemplatePlugin = config => {
   return new HtmlWebpackPlugin({
     filename: `${config.entry}/index.html`,
     template: path.join(consts.ROOT_PATH, 'build/index.html'),
-    // minify: {
-    //   removeComments: true,
-    //   collapseWhitespace: true,
-    //   minifyCSS: true,
-    //   minifyJS: true,
-    //   collapseBooleanAttributes: true,
-    // },
-    // chunks: ['vendor'],
+    minify: {
+      removeComments: true,
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      collapseBooleanAttributes: true,
+    },
     inject: 'body',
     chunks: ['vendor', config.chunkName]
   })
@@ -55,11 +54,8 @@ module.exports = {
     })
     let entries = {}
     let plugins = []
-    console.log('============')
     entryConfigs.forEach(item => {
       entries[item.chunkName] = item.src
-      console.log(item.entry)
-      console.log(item.chunkName)
       plugins.push(getHtmlTemplatePlugin(item))
     })
 

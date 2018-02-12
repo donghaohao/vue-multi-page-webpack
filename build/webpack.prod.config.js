@@ -5,7 +5,8 @@ const baseConfig = require('./webpack.base.config.js')
 const utils = require('./utils/util.js')
 const consts = require('./config/consts')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 process.env.NODE_ENV = 'production'
 
@@ -30,9 +31,8 @@ let prodConfig = merge(baseConfig, {
         NODE_ENV: '"production"',
       },
     }),
-    // new UglifyJsPlugin({
-    //   sourceMap: false,
-    // }),
+    new UglifyJsPlugin(),
+    new ExtractTextPlugin('[name].[contenthash:7].css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor'],
       chunkFilename: '[name].[chunkhash:7].js',
@@ -40,8 +40,4 @@ let prodConfig = merge(baseConfig, {
     }),
   ]),
 })
-console.log(prodConfig.module.rules[5])
-
-// console.log(prodConfig.entry)
-
 module.exports = prodConfig

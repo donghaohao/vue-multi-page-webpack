@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const consts = require('./config/consts')
 const svgoConfig = require('./config/svgo-config')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 let baseConfig = {
   entry: {
@@ -58,10 +59,9 @@ let baseConfig = {
         },
       }, {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          }, {
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
             loader: 'css-loader',
             options: {
               modules: true,
@@ -69,15 +69,21 @@ let baseConfig = {
             }
           }, {
             loader: 'postcss-loader',
-          }
-        ]
+          }],
+        })
       }, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
             js: 'babel-loader',
-            style: 'vue-style-loader!css-loader'
+            style: 'vue-style-loader!css-loader',
+            css: ExtractTextPlugin.extract({
+              use: {
+                loader: 'css-loader?minimize=true',
+              },
+              fallback: 'vue-style-loader',
+            })
           },
         }
       },
