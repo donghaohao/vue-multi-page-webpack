@@ -1,16 +1,16 @@
 <script>
-  export default {
-    props: {
-      myName: {
-        type: String,
-        default: 'Hello',
-      },
-      myAge: {
-        type: Number,
-        default: 20,
-      },
+export default {
+  props: {
+    myName: {
+      type: String,
+      default: 'Hello',
     },
-  }
+    myAge: {
+      type: Number,
+      default: 20,
+    },
+  },
+}
 </script>
 <template>
 <div>

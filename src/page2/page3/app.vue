@@ -1,22 +1,22 @@
 <script>
-  import Test from './component/test.vue'
-  export default {
-    data() {
-      return {
-        msg: 'hello world!!',
-        name: 'xixi',
-        age: 24,
-      };
-    },
-    components: {
-      Test,
-    },
-    created() {
-      ['4', '5', '6'].forEach(value => {
-        console.log(value)
-      });
-    },
-  }
+import Test from './component/test.vue'
+export default {
+  data() {
+    return {
+      msg: 'hello world!!',
+      name: 'xixi',
+      age: 24,
+    };
+  },
+  components: {
+    Test,
+  },
+  created() {
+    ['4', '5', '6'].forEach(value => {
+      console.log(value)
+    });
+  },
+}
 </script>
 <template>
   <div>
