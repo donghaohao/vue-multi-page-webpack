@@ -46,7 +46,8 @@ let baseConfig = {
         loader: 'file-loader',
         options: {
           limit: 10000,
-          name: path.posix.join('static/', '[name].[hash:7].[ext]'),
+          name: '[name].[hash:7].[ext]',
+          outputPath: 'static/'
         },
       }
     ]
