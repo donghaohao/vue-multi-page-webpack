@@ -22,7 +22,7 @@
 
 让我们愉快的开始吧！注意：一些很基础的配置我就不提了，可以在我的 github 上看完整配置项
 
-按照惯例，配置分为开发和生产的配置，可以分为 `webpack.base.config.js` `webpack.dev.config.js` `webpack.prod.config.js`
+按照惯例，配置分为开发和生产的配置，可以分为 `webpack.base.config.js` `webpack.dev.config.js` `webpack.prod.config.js`
 
 先从`webpack.base.config.js`说起
 
